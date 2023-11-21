@@ -1,0 +1,28 @@
+[profile.dev]
+opt-level = 1               # Use slightly better optimizations.
+overflow-checks = false     # Disable integer overflow checks.
+debuginfo = true            # Include debug information (slower).
+incremental = false         # Don't do incremental compilation for faster rebuilds.
+codegen-units = 4           # Split the code into multiple files to speed up builds and reduce memory usage at runtime.
+lto = "fat"                 # Link time optimization, use all cores to speed up builds.
+panic = 'unwind'           # Enable unwinding on panic.
+
+[profile.release]
+opt-level = 3               # Maximum level optimizations (highly unstable, debug first)
+overflow-checks = true      # Enable integer overflow checks in release mode too!
+debuginfo = false           # Strip out the debugging symbols from our binaries so they are smaller and don't contain any extra info about what's going wrong
+
+[profile.test]
+
+[profile.bench] 
+
+[package]
+name = "tornadic-index"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+angle = "0.5.0"
+metfor = "0.9.0"
